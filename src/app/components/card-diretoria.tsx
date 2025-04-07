@@ -17,6 +17,7 @@ export default function CardDiretoria({src, nome, cargo}: CardProps) {
                 width={218}
                 height={239}
                 quality={100}
+                className="transition-transform duration-300 ease-in-out hover:scale-105"
                 />
             </div>
             <div className="flex flex-col items-start justify-between h-[80px]">

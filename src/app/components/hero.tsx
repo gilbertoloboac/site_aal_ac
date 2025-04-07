@@ -20,7 +20,7 @@ export default function Hero() {
                     width={372}
                     height={467}
                     quality={100}
-                    className="w-[200px] sm:w-[300px] md:w-[372px] h-auto rotate-12 transition-transform duration-300 ease-in-out hover:scale-105:"
+                    className="w-[200px] sm:w-[300px] md:w-[372px] h-auto rotate-12 transition-transform duration-300 ease-in-out hover:scale-105"
                 />
             </div>
            

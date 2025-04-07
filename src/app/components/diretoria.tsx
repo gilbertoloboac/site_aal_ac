@@ -6,7 +6,9 @@ export default function Diretoria() {
             <h1 className="text-blue-950 text-4xl font-extrabold py-10 mb-6 text-center">
                 Diretoria
             </h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-80 pb-20">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-6 px-4 md:px-0 max-w-3xl mx-auto justify-items-center pb-20">
+
+
                 <CardDiretoria
                 src="/adalberto_q.png"
                 nome="Adalberto Queiroz de Mesquita"
