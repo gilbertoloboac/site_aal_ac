@@ -1,4 +1,6 @@
 import Image from "next/image";
+import ButtonComponent from "./button";
+
 
 export default function Hero() {
     return (
@@ -11,7 +13,12 @@ export default function Hero() {
                 <p className="text-indigo-300 text-base sm:text-lg md:text-base lg:text-lg">
                     Explore as páginas da <strong>Revista Hileia</strong>, uma edição especial que celebra os 50 anos da Academia Acreana de Letras. De 1973 a 2023, esta publicação resgata memórias, trajetórias e contribuições dos imortais que ajudaram a construir a identidade literária e cultural do Acre.
                 </p>
-                <button className="bg-[#3B5CFF] px-6 py-2 mt-6 rounded-md hover:bg-blue-800" ><a href="#">Leia revista</a></button>
+               
+                <ButtonComponent
+                texto="Leia a revista"
+                link="http://www.google.com"
+                />
+
             </div>
             <div className="md:w-1/2 flex justify-center">
                 <Image

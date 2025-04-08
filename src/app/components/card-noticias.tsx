@@ -1,12 +1,18 @@
 import Image from 'next/image';
+import ButtonComponent from './button';
 
-export default function CardNoticia() {
+type CardNoticiasProps = {
+    titulo: string;
+    link: string;
+}
+
+export default function CardNoticia({titulo, link}: CardNoticiasProps) {
     return (
         <div>
             <div className="max-w-sm bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative h-52 w-full">
                     <Image
-                        src="/foto1.jpg"
+                        src={link}
                         alt="Imagem da notícia"
                         fill
                         className="object-cover rounded-t-md"
@@ -15,13 +21,15 @@ export default function CardNoticia() {
 
                 <div className="p-4 flex flex-col justify-between">
                     <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                        Novos imortais da AAL tomam posse nesta terça-feira, 3
+                        {titulo}
                     </h2>
-                    
-
-                    <button className="mt-4 self-start bg-[#0D2A4D] text-white px-4 py-2 rounded-lg text-sm hover:bg-[#134072] transition-colors cursor-pointer">
-                        Saiba mais
-                    </button>
+                    <div className='flex items-center justify-center font-bold'>
+                        <ButtonComponent
+                        texto="Saiba mais" 
+                        link={'#'}                   
+                        />
+                    </div>
+                   
                 </div>
             </div>
         </div>
