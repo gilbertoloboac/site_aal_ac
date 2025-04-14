@@ -2,7 +2,7 @@ import CardArtigos from "./card-artigos";
 
 export default function Artigos() {
     return(
-        <section className="mb-20">
+        <section className="mb-20 md:w-6xl mx-auto">
              <h1 className=" text-blue-950 text-4xl font-extrabold py-10 mb-6 text-center">Artigos dos Acadêmicos</h1>
              <div className="grid grid-cols-1 md:grid-cols-3">
                 <CardArtigos

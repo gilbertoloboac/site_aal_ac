@@ -1,36 +1,43 @@
 import Image from "next/image";
 import ButtonComponent from "./button";
+import {getDataHero} from "../utils/actions/get-data"
 
+export default async function Hero() {
+    const data = await getDataHero();
+    console.log(data)
 
-export default function Hero() {
+    const heroData = data?.results?.[0] || {};
+
     return (
-        <div className="flex flex-col-reverse md:flex-row items-center bg-[#0D2A4D] px-6 md:px-20 py-10 gap-8">
-            <div className="text-white md:w-1/2 text-center md:text-left">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                    Revista <br />
-                    <strong>HILEIA</strong>
-                </h1>
-                <p className="text-indigo-300 text-base sm:text-lg md:text-base lg:text-lg">
-                    Explore as páginas da <strong>Revista Hileia</strong>, uma edição especial que celebra os 50 anos da Academia Acreana de Letras. De 1973 a 2023, esta publicação resgata memórias, trajetórias e contribuições dos imortais que ajudaram a construir a identidade literária e cultural do Acre.
-                </p>
-               
-                <ButtonComponent
-                texto="Leia a revista"
-                link="http://www.google.com"
-                />
+        <div className="relative bg-[#0D2A4D] px-6 md:px-20 py-10 overflow-hidden">
+      
+            <div className="flex flex-col-reverse md:flex-row items-center relative gap-4 contain-content">
+                {/* Texto */}
+                <div className="text-white md:w-1/2 text-center md:text-left">
+                    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+                    {heroData.titulo_hero}
+                    </h1>
+                    <p className="text-indigo-300 text-base sm:text-lg md:text-base lg:text-lg mb-6">
+                    {heroData.descricao}
+                    </p>
+                    <ButtonComponent 
+                    texto="Acessar a revista"
+                    link={heroData.link}
+                    
+                    />
+                </div>
 
+                {/* Imagem ao lado no desktop */}
+                <div className="md:block md:w-1/2 rotate-12 py-10">
+                    <Image
+                        src={"/revista-aal.png"}
+                        alt="Revista HILEIA"
+                        width={500}
+                        height={500}
+                        className="mx-auto"
+                    />
+                </div>
             </div>
-            <div className="md:w-1/2 flex justify-center">
-                <Image
-                    src="/revista-aal.png"
-                    alt="Revista AAL"
-                    width={372}
-                    height={467}
-                    quality={100}
-                    className="w-[200px] sm:w-[300px] md:w-[372px] h-auto rotate-12 transition-transform duration-300 ease-in-out hover:scale-105"
-                />
-            </div>
-           
         </div>
     );
 }
