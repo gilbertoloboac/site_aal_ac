@@ -30,7 +30,7 @@ export default async function Hero() {
                 {/* Imagem ao lado no desktop */}
                 <div className="md:block md:w-1/2 rotate-12 py-10">
                     <Image
-                        src={"/revista-aal.png"}
+                        src={heroData.imagem}
                         alt="Revista HILEIA"
                         width={500}
                         height={500}
