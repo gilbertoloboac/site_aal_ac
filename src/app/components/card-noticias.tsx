@@ -4,16 +4,18 @@ import ButtonComponent from './button';
 type CardNoticiasProps = {
     titulo: string;
     link: string;
+    alt: string
+    id: number;
 }
 
-export default function CardNoticia({titulo, link}: CardNoticiasProps) {
+export default function CardNoticia({titulo, link, alt, id}: CardNoticiasProps) {
     return (
         <div>
             <div className="max-w-sm bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="relative h-52 w-full">
                     <Image
                         src={link}
-                        alt="Imagem da notícia"
+                        alt={alt}
                         fill
                         className="object-cover rounded-t-md"
                     />
@@ -26,7 +28,7 @@ export default function CardNoticia({titulo, link}: CardNoticiasProps) {
                     <div className='flex items-center justify-center font-bold'>
                         <ButtonComponent
                         texto="Saiba mais" 
-                        link={'#'}                   
+                        link={`/noticias/${id}`}                   
                         />
                     </div>
                    
