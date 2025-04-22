@@ -4,7 +4,7 @@ import {getDataHero} from "../utils/actions/get-data"
 
 export default async function Hero() {
     const data = await getDataHero();
-    console.log(data)
+    
 
     const heroData = data?.results?.[0] || {};
 
@@ -28,7 +28,7 @@ export default async function Hero() {
                 </div>
 
                 {/* Imagem ao lado no desktop */}
-                <div className="md:block md:w-1/2 rotate-12 py-10">
+                <div className="md:block md:w-1/2 rotate-12 py-10  hover:scale-105 transition-transform duration-500 ease-in-out">
                     <Image
                         src={heroData.imagem}
                         alt="Revista HILEIA"

@@ -4,8 +4,7 @@ type EventoProps = {
   dia: number;
   mes: string;
   evento: string;
-  hora: number;
-  minuto: number;
+  horario: string;
   local: string;
 };
 
@@ -13,8 +12,7 @@ export default function EventoComponent({
   dia,
   mes,
   evento,
-  hora,
-  minuto,
+  horario,
   local,
 }: EventoProps) {
   return (
@@ -37,7 +35,7 @@ export default function EventoComponent({
           <div className="flex items-center gap-2 border-t-2 pt-2 mt-2">
             <Clock3 size={18} />
             <p>
-              {hora}h{minuto}
+              {horario}
             </p>
           </div>
 

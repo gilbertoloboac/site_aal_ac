@@ -1,28 +1,66 @@
-type CardArtigoProps = {
-    categoria: string;
-    titulo: string;
-    link: string;
-    autor: string;
-    data: string;
-    
+import Image from "next/image";
+import Link from "next/link";
+import { JSX } from "react";
+
+type CardArtigosProps = {
+  id: number;
+  src: string;
+  alt: string;
+  nome_autor: string;
+  data_publicacao: string;
+  titulo_artigo: string;
+  categoria_artigo: string;
+};
+
+// Função para formatar a data no estilo "20 de abril de 2025"
+function formatarData(data: string) {
+  const date = new Date(data);
+  return new Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(date);
 }
 
-export default function CardArtigos({categoria, titulo, link, autor, data}: CardArtigoProps) {
-    return(
-        <div className="w-full max-w-md my-5 mx-auto px-4">
-        <div className="box-border border-0 shadow-2xl px-6 py-6 rounded-md bg-white">
-          <div className="bg-blue-600 text-white w-fit px-3 py-0.5 mb-2 text-sm rounded-md">
-            {categoria}
-          </div>
-          <h3 className="text-2xl font-bold">
-            <a href={link}>{titulo}</a>
-          </h3>
-          <div className="flex items-center gap-2 mt-2 pt-4 text-sm text-gray-600">
-            <div className="rounded-full bg-blue-600 h-4 w-4"></div>
-            <p className="mr-4">{autor}</p>
-            <p>{data}</p>
-          </div>
-        </div>
+export default function CardArtigos({
+  id,
+  src,
+  alt,
+  nome_autor,
+  data_publicacao,
+  titulo_artigo,
+  categoria_artigo,
+}: CardArtigosProps): JSX.Element {
+  return (
+    <div className="shadow-lg rounded-lg bg-white p-4 m-4 w-[28rem]">
+      {/* Categoria */}
+      <div className="bg-[#1769CD] text-white px-3 py-1 w-fit rounded-md text-sm mb-4">
+        {categoria_artigo}
       </div>
-    )
+
+      {/* Foto + título */}
+      <div className="flex items-center gap-3 mb-2">
+        <Image
+          src={src}
+          alt={alt}
+          width={600}
+          height={600}
+          quality={100}
+          className="w-40 h-20 object-cover rounded"
+        />
+        <h2 className="text-xl font-bold text-blue-800 hover:underline">
+          <Link href={`/artigos/${id}`}>
+            {titulo_artigo}
+          </Link>
+        </h2>
+      </div>
+
+      {/* Autor e data */}
+      <div className="text-sm text-gray-600">
+        <p>
+          <span className="font-semibold">{nome_autor}</span> • publicado em: {formatarData(data_publicacao)}
+        </p>
+      </div>
+    </div>
+  );
 }

@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 
 interface Noticia {
     id: number;
-    titulo: string;
+    titulo_noticia: string;
     autor: string;
     texto: string;
     foto_noticia: string;
@@ -13,6 +13,8 @@ interface Noticia {
     olho: string;
     tag: string;
     data_publicacao: string
+    credito_foto: string;
+    texto_formatado: string;
 }
 
 // Esta função é executada no lado do servidor
@@ -44,11 +46,11 @@ export default async function DetalheNoticia({ params }: { params: { id: string 
     return (
         <div className="bg-amber-50 min-h-screen py-10">
             <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
-                <Link href="/" className="text-blue-950 mb-6 inline-block hover:underline">
+                <Link href="/mais-noticias" className="text-blue-950 mb-6 inline-block hover:underline">
                     ← Voltar para notícias
                 </Link>
                 
-                <h1 className="text-3xl font-bold text-blue-950 mb-4">{noticia.titulo}</h1>
+                <h1 className="text-3xl font-bold text-blue-950 mb-4">{noticia.titulo_noticia}</h1>
                 
                 <div className="flex items-center text-gray-600 mb-6">
                     <span className="mr-4">Por: {noticia.autor}</span>
@@ -58,8 +60,8 @@ export default async function DetalheNoticia({ params }: { params: { id: string 
                 <div className="text-gray-800 font-semibold italic mb-6">
                     {noticia.olho}
                 </div>
-                
-                <div className="relative h-80 w-full mb-6">
+                <div className='text-sm text-gray-500 text-center'>{noticia.credito_foto}</div>
+                <div className="relative h-80 max-w-full mb-6 md:w-[60%] mx-auto">
                     <Image 
                         src={noticia.foto_noticia} 
                         alt={noticia.legenda_foto}
@@ -69,12 +71,16 @@ export default async function DetalheNoticia({ params }: { params: { id: string 
                     />
                 </div>
                 
-                <div className="text-gray-600 text-sm mb-8">
+                <div className="text-gray-600 text-sm mb-8 text-center">
                     {noticia.legenda_foto}
+                    
+                </div>
+                <div>
+                    
                 </div>
                 
-                <div className="prose max-w-none"
-                    dangerouslySetInnerHTML={{ __html: noticia.texto }}
+                <div className="prose max-w-none leading-relaxed" id='noticia-conteudo'
+                    dangerouslySetInnerHTML={{ __html: noticia.texto_formatado }}
                 />
                 
                 <div className="mt-8 pt-4 border-t border-gray-200">

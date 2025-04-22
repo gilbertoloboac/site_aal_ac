@@ -14,11 +14,12 @@ export default function Footer() {
         </div>
     
         <nav className="flex flex-wrap justify-center gap-6 text-sm font-medium">
-          <a href="#" className="hover:text-white">Academia</a>
-          <a href="#" className="hover:text-white">Acadêmicos</a>
-          <a href="#" className="hover:text-white">Publicações</a>
-          <a href="#" className="hover:text-white">Documentos</a>
-          <a href="#" className="hover:text-white">Editora</a>
+          <a href="/academia" className="hover:text-white">Academia</a>
+          <a href="/academicos" className="hover:text-white">Acadêmicos</a>
+          <a href="/documentos" className="hover:text-white">Documentos</a>
+          <a href="/mais-noticias" className="hover:text-white">Notícias</a>
+          <a href="/artigos" className="hover:text-white">Artigos</a>
+          <a href="/editora" className="hover:text-white">Editora</a>
         </nav>
 
         {/* Redes sociais */}
@@ -34,7 +35,7 @@ export default function Footer() {
           </a>
         </div>
         <p className="max-w-md text-sm text-white/80 mt-10">
-          Todos os direitos reservados à Academia Acreana de Letras. Desenvolvido por AcreHost.
+        Esta página, criada no dia 12 de fevereiro de 2025, destina a divulgação e registro das ações da Academia Acreana de Letras (AAL). 
         </p>
       </div>
     </footer>

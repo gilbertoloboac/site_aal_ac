@@ -29,6 +29,12 @@ export default function Navbar() {
                 >
                     <li className="pb-1">
                         <Link className="hover:border-b-2 border-b-[#B6A447]" href="/">
+                            Home
+                        </Link>
+                    </li>
+                    
+                    <li className="pb-1">
+                        <Link className="hover:border-b-2 border-b-[#B6A447]" href="/academia">
                             Academia
                         </Link>
                     </li>
@@ -38,12 +44,12 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li className="pb-1">
-                        <Link className="hover:border-b-2 border-b-[#B6A447]" href="/">
+                        <Link className="hover:border-b-2 border-b-[#B6A447]" href="/mais-noticias">
                             Notícias
                         </Link>
                     </li>
                     <li className="pb-1">
-                        <Link className="hover:border-b-2 border-b-[#B6A447]" href="/">
+                        <Link className="hover:border-b-2 border-b-[#B6A447]" href="/artigos">
                             Artigos
                         </Link>
                     </li>
@@ -53,7 +59,7 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li className="pb-1">
-                        <Link className="hover:border-b-2 border-b-[#B6A447]" href="/">
+                        <Link className="hover:border-b-2 border-b-[#B6A447]" href="/editora">
                             Editora
                         </Link>
                     </li>
