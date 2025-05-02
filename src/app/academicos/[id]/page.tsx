@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 
 interface AcademicosProps {
-    params: {id: number};
+    params: {id: string};
 }
 
 
