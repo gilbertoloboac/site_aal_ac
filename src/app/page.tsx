@@ -6,7 +6,7 @@ import Noticias from "./components/noticias";
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
      <main>
       <Hero/>
       <Noticias/>

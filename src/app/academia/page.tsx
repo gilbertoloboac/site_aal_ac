@@ -22,7 +22,7 @@ export default async function Academia() {
         <div>
             <div className="flex items-center bg-blue-800 py-4 border-blue-800">
                 <div className="w-2 h-20 md:h-10 bg-amber-400 ml-20"></div>
-                <h3 className="ml-2 font-bold text-amber-50 text-2xl">
+                <h3 className="ml-2 font-bold text-amber-50  md:text-2xl">
                     Conheça a Academia Acreana de Letras
                 </h3>
             </div>

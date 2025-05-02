@@ -39,7 +39,7 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li className="pb-1">
-                        <Link className="hover:border-b-2 border-b-[#B6A447]" href="/">
+                        <Link className="hover:border-b-2 border-b-[#B6A447]" href="/academicos">
                             Acadêmicos
                         </Link>
                     </li>
@@ -54,7 +54,7 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li className="pb-1">
-                        <Link className="hover:border-b-2 border-b-[#B6A447]" href="/">
+                        <Link className="hover:border-b-2 border-b-[#B6A447]" href="/documentos">
                             Documentos
                         </Link>
                     </li>

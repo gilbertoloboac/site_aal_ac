@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import ButtonComponent from "./button";
 import {getDataHero} from "../utils/actions/get-data"
@@ -22,7 +23,7 @@ export default async function Hero() {
                     </p>
                     <ButtonComponent 
                     texto="Acessar a revista"
-                    link={heroData.link}
+                    link="/publicacao/1"
                     
                     />
                 </div>
