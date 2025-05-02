@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 interface AcademicosProps {
   params: {
@@ -9,18 +10,36 @@ interface AcademicosProps {
   };
 }
 
-export default async function AcademicoBiografia({ params }: AcademicosProps) {
-  let dados;
+interface MembroData {
+  nome?: string;
+  foto?: string;
+  biografia?: string;
+}
 
-  try {
-    const res = await fetch(`http://localhost:8000/api/membro/${params.id}/`, {
-      cache: 'no-store',
-    });
+export default function AcademicoBiografia({ params }: AcademicosProps) {
+  const [dados, setDados] = useState<MembroData | null>(null);
+  const [erro, setErro] = useState<boolean>(false);
 
-    if (!res.ok) throw new Error();
+  useEffect(() => {
+    const fetchDados = async () => {
+      try {
+        const res = await fetch(`http://localhost:8000/api/membro/${params.id}/`, {
+          cache: 'no-store',
+        });
 
-    dados = await res.json();
-  } catch (e) {
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        setDados(data);
+      } catch (e) {
+        console.error('Erro ao buscar dados do acadêmico:', e);
+        setErro(true);
+      }
+    };
+
+    fetchDados();
+  }, [params.id]);
+
+  if (erro) {
     return (
       <div className="bg-amber-100 min-h-screen flex flex-col justify-center items-center text-center p-10">
         <h2 className="text-2xl font-bold text-red-700 mb-4">Erro ao carregar a biografia.</h2>
@@ -30,6 +49,14 @@ export default async function AcademicoBiografia({ params }: AcademicosProps) {
         >
           Voltar para Galeria
         </Link>
+      </div>
+    );
+  }
+
+  if (!dados) {
+    return (
+      <div className="bg-amber-100 min-h-screen flex items-center justify-center text-center">
+        <p className="text-lg text-blue-900">Carregando biografia...</p>
       </div>
     );
   }
@@ -62,9 +89,12 @@ export default async function AcademicoBiografia({ params }: AcademicosProps) {
 
           <div id="noticia-conteudo" className="space-y-4 text-justify leading-relaxed">
             {dados.biografia ? (
-              dados.biografia.split('\n').map((paragrafo: string, index: number) => (
-                <p key={index}>{paragrafo.trim()}</p>
-              ))
+              dados.biografia
+                .split('\n')
+                .filter(par => par.trim() !== '')
+                .map((paragrafo, index) => (
+                  <p key={index}>{paragrafo.trim()}</p>
+                ))
             ) : (
               <p>Biografia não disponível.</p>
             )}
